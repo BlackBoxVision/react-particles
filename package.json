@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/react-particles",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "🎉Blazing fast ParticlesJS wrapper for ReactJS",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
