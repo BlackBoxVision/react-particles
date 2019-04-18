@@ -1,0 +1,142 @@
+{
+  "name": "@blackbox-vision/react-particles",
+  "version": "1.0.0",
+  "description": "🎉Blazing fast ParticlesJS wrapper for ReactJS",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "clean": "rimraf pkg && rimraf storybook-static",
+    "publish": "pack publish",
+    "build": "npm run clean && pack build",
+    "test": "jest --passWithNoTests -- -u",
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "**/*.md",
+            "**/*.tests.*",
+            "**/*.stories.*",
+            "**/__snapshots/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node",
+        {
+          "exclude": [
+            "**/*.md",
+            "**/*.tests.*",
+            "**/*.stories.*",
+            "**/__snapshots/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-web",
+        {
+          "exclude": [
+            "**/*.md",
+            "**/*.tests.*",
+            "**/*.stories.*",
+            "**/__snapshots/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-types",
+        {
+          "exclude": [
+            "**/*.md",
+            "**/*.tests.*",
+            "**/*.stories.*",
+            "**/__snapshots/*"
+          ]
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackBoxVision/react-particles.git"
+  },
+  "author": "Jonatan E. Salas <jonatan.salas@blackbox-vision.tech>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlackBoxVision/react-particles/issues"
+  },
+  "homepage": "https://github.com/BlackBoxVision/react-particles#readme",
+  "peerDependencies": {
+    "react": "^16.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "@pika/plugin-build-node": "^0.3.14",
+    "@pika/plugin-build-types": "^0.3.14",
+    "@pika/plugin-build-web": "^0.3.14",
+    "@pika/plugin-standard-pkg": "^0.3.14",
+    "@storybook/addon-actions": "^5.0.3",
+    "@storybook/addon-info": "^5.0.3",
+    "@storybook/addon-knobs": "^5.0.3",
+    "@storybook/addon-links": "^5.0.3",
+    "@storybook/addons": "^5.0.3",
+    "@storybook/react": "^5.0.3",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "@storybook/theming": "^5.0.3",
+    "@types/react": "^16.8.8",
+    "babel-eslint": "^10.0.1",
+    "dotenv-webpack": "^1.7.0",
+    "eslint": "^5.15.3",
+    "eslint-config-react-app": "^3.0.8",
+    "eslint-import-resolver-lerna": "^1.1.0",
+    "eslint-plugin-flowtype": "^3.4.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "firebase": "^4.0.0",
+    "husky": "^1.3.1",
+    "jest": "^24.5.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "react": "^16.8.5",
+    "rimraf": "^2.6.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,ts,tsx}": [
+      "eslint --fix --ext .ts,.tsx,.js",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "lodash.merge": "^4.6.1",
+    "particles.js": "^2.0.0"
+  }
+}

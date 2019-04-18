@@ -1,0 +1,5 @@
+pkg
+.env
+coverage
+node_modules
+storybook-static
