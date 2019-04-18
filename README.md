@@ -62,13 +62,6 @@ ReactDOM.render(<ParticlesJs />, document.getElementById('root'));
 
 ## Props
 
-  id?: string;
-  params: any;
-  style?: any;
-  width?: string;
-  height?: string;
-  className?: string;
-
 `Particles` rely on the following props:
 
 | Properties   | Types    | Default Value        | Description                                                                                                                                  |
