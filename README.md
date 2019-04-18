@@ -1,6 +1,6 @@
 # React Particles JS [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-particles.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-particles) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/react-particles/badge.svg)](https://snyk.io/test/github/blackboxvision/react-particles)
 
-🥳 ParticlesJS implementation for React. Check out the [demo](https://blackboxvision.github.io/react-particles/).
+🎉Blazing fast ParticlesJS wrapper for ReactJS. Check out the [demo](https://blackboxvision.github.io/react-particles/).
 
 ## Install
 
