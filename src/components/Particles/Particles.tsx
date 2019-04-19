@@ -1,18 +1,54 @@
 import merge from 'lodash.merge';
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { getParams } from '../../utils';
 
-export interface ParticlesProps {
+interface ParticlesProps {
+  /**
+   * Determines wheter to render Particles
+   *
+   * @default "particles-js"
+   */
   id?: string;
+  /**
+   * Determines the configuration for Particles JS
+   */
   params: any;
+  /**
+   * Determines the styles for the Particles container
+   *
+   * @default {}
+   */
   style?: any;
+  /**
+   * Determines the width for the Particles container
+   *
+   * @default "auto"
+   */
   width?: string;
+  /**
+   * Determines the height for the Particles container
+   *
+   * @default "100vh"
+   */
   height?: string;
+  /**
+   * Determines a custom className to apply to Particles container
+   */
   className?: string;
+  /**
+   * Determines if should merge values from params with lib defaults
+   *
+   * @default true
+   */
   withDefaults?: boolean;
 }
 
-class Particles extends React.PureComponent<ParticlesProps> {
+interface CustomWindow extends Window {
+  particlesJS?: any;
+  pJSDom?: Array<any>;
+}
+
+export class Particles extends PureComponent<ParticlesProps> {
   static displayName = 'Particles';
 
   static defaultProps = {
@@ -26,29 +62,31 @@ class Particles extends React.PureComponent<ParticlesProps> {
   componentDidMount() {
     require('particles.js');
 
-    if ('particlesJS' in window) {
-      window.particlesJS(this.props.id, this.getParticles());
+    var w: CustomWindow = window;
+
+    if ('particlesJS' in w) {
+      w.particlesJS(this.props.id, this.getParticles());
     }
   }
 
   componentDidUpdate(prevProps) {
+    var w: CustomWindow = window;
+
     if (
-      'particlesJS' in window &&
+      'particlesJS' in w &&
       prevProps.id !== this.props.id &&
       prevProps.params !== this.props.params
     ) {
-      window.particlesJS(this.props.id, this.getParticles());
+      w.particlesJS(this.props.id, this.getParticles());
     }
   }
 
   componentWillUnmount() {
-    if (
-      'pJSDom' in window &&
-      window.pJSDom instanceof Array &&
-      window.pJSDom.length > 0
-    ) {
-      window.pJSDom.forEach(({ pJS }) => pJS && pJS.fn.vendors.destroypJS());
-      window.pJSDom = [];
+    var w: CustomWindow = window;
+
+    if ('pJSDom' in w && w.pJSDom instanceof Array && w.pJSDom.length > 0) {
+      w.pJSDom.forEach(({ pJS }) => pJS && pJS.fn.vendors.destroypJS());
+      w.pJSDom = [];
     }
   }
 
