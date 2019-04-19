@@ -258,3 +258,201 @@ storiesOf('Particles', module)
       }}
     />
   ))
+  .add('Nyan Cat', () => (
+    <Particles
+      id="nyan-cat"
+      width="auto"
+      height="100vh"
+      style={{
+        backgroundColor: 'rgb(4, 53, 100)',
+        backgroundImage:
+          'url("http://vincentgarreau.com/particles.js/assets/img/kbLd9vb_new.gif")',
+        backgroundSize: '60%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '0px 50%',
+      }}
+      params={{
+        particles: {
+          number: {
+            value: 100,
+            density: {
+              enable: false,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: '#ffffff',
+          },
+          shape: {
+            type: 'star',
+            stroke: {
+              width: 0,
+              color: '#000000',
+            },
+            polygon: {
+              nb_sides: 5,
+            },
+            image: {
+              src:
+                'http://wiki.lexisnexis.com/academic/images/f/fb/Itunes_podcast_icon_300.jpg',
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 4,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: false,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 14,
+            direction: 'left',
+            random: false,
+            straight: true,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: {
+              enable: false,
+              mode: 'grab',
+            },
+            onclick: {
+              enable: true,
+              mode: 'repulse',
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 200,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      }}
+    />
+  ))
+  .add('Shinning', () => (
+    <Particles
+      id="shine"
+      width="auto"
+      height="100vh"
+      withDefaults={false}
+      style={{
+        backgroundColor: 'blue',
+      }}
+      params={{
+        fps_limit: 28,
+        particles: {
+          number: {
+            value: 200,
+            density: {
+              enable: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 30,
+            opacity: 0.4,
+          },
+          move: {
+            speed: 1,
+          },
+          opacity: {
+            anim: {
+              enable: true,
+              opacity_min: 0.05,
+              speed: 2,
+              sync: false,
+            },
+            value: 0.4,
+          },
+        },
+        polygon: {
+          enable: true,
+          scale: 0.5,
+          type: 'inline',
+          move: {
+            radius: 10,
+          },
+          url: 'https://rpj.bembi.org/small-deer.2a0425af.svg',
+          inline: {
+            arrangement: 'equidistant',
+          },
+          draw: {
+            enable: true,
+            stroke: {
+              color: 'rgba(255, 255, 255, .2)',
+            },
+          },
+        },
+        retina_detect: false,
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'bubble',
+            },
+          },
+          modes: {
+            bubble: {
+              size: 6,
+              distance: 40,
+            },
+          },
+        },
+      }}
+    />
+  ));

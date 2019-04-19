@@ -9,6 +9,7 @@ export interface ParticlesProps {
   width?: string;
   height?: string;
   className?: string;
+  withDefaults?: boolean;
 }
 
 class Particles extends React.PureComponent<ParticlesProps> {
@@ -19,16 +20,14 @@ class Particles extends React.PureComponent<ParticlesProps> {
     width: 'auto',
     height: '100vh',
     id: 'particles-js',
+    withDefaults: true,
   };
 
   componentDidMount() {
     require('particles.js');
 
     if ('particlesJS' in window) {
-      window.particlesJS(
-        this.props.id,
-        merge({}, getParams(), this.props.params)
-      );
+      window.particlesJS(this.props.id, this.getParticles());
     }
   }
 
@@ -38,15 +37,16 @@ class Particles extends React.PureComponent<ParticlesProps> {
       prevProps.id !== this.props.id &&
       prevProps.params !== this.props.params
     ) {
-      window.particlesJS(
-        this.props.id,
-        merge({}, getParams(), this.props.params)
-      );
+      window.particlesJS(this.props.id, this.getParticles());
     }
   }
 
   componentWillUnmount() {
-    if (window.pJSDom instanceof Array && window.pJSDom.length > 0) {
+    if (
+      'pJSDom' in window &&
+      window.pJSDom instanceof Array &&
+      window.pJSDom.length > 0
+    ) {
       window.pJSDom.forEach(({ pJS }) => pJS && pJS.fn.vendors.destroypJS());
       window.pJSDom = [];
     }
@@ -67,6 +67,14 @@ class Particles extends React.PureComponent<ParticlesProps> {
       />
     );
   }
+
+  getParticles = () => {
+    if (this.props.withDefaults) {
+      return merge({}, getParams(), this.props.params);
+    } else {
+      return this.props.params;
+    }
+  };
 }
 
 export default Particles;
