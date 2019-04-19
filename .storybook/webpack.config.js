@@ -1,9 +1,13 @@
 module.exports = async ({ config }) => {
   config.module.rules.push({
-    test: /\.tsx?$/,
+    test: /\.(ts|tsx)$/,
     use: [
-      require.resolve('ts-loader'),
-      require.resolve('react-docgen-typescript-loader'),
+      {
+        loader: require.resolve('awesome-typescript-loader'),
+      },
+      {
+        loader: require.resolve('react-docgen-typescript-loader'),
+      },
     ],
   });
 

@@ -1,21 +1,19 @@
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
 import { addDecorator, addParameters, configure } from '@storybook/react';
 import { themes } from '@storybook/theming';
 
 addParameters({
   options: {
-    brandTitle: '@blackbox-vision/react-particles',
+    name: 'React ParticlesJS',
     theme: themes.light,
+    showAddonPannel: false,
+    addonPanelInRight: true,
   },
 });
 
-addDecorator(withInfo({ inline: true, header: false }));
-addDecorator(withKnobs);
+addDecorator(withInfo({ inline: false, header: false }));
 
 const req = require.context('../stories', true, /.stories.tsx$/);
-function loadStories() {
-  req.keys().forEach(filename => req(filename));
-}
+const loadStories = () => req.keys().forEach(filename => req(filename));
 
 configure(loadStories, module);

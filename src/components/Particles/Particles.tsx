@@ -69,7 +69,7 @@ export class Particles extends PureComponent<ParticlesProps> {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: ParticlesProps) {
     var w: CustomWindow = window;
 
     if (
