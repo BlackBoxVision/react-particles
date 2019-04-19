@@ -11,7 +11,6 @@ export interface ParticlesProps {
   className?: string;
 }
 
-// TODO: try to review how to make a deep-merge correctly
 class Particles extends React.PureComponent<ParticlesProps> {
   static displayName = 'Particles';
 
