@@ -6,7 +6,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "clean": "rimraf pkg && rimraf storybook-static",
+    "clean": "rimraf pkg && rimraf storybook-static && rimraf build",
     "publish": "pack publish",
     "build": "npm run clean && pack build",
     "test": "jest --passWithNoTests -- -u",
