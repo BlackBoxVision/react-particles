@@ -72,6 +72,7 @@ ReactDOM.render(<ParticlesJs />, document.getElementById('root'));
 | width        | string   | auto                 | Determines the width for the Particles container.                                                                                            |
 | height       | string   | 100vh                | Determines the height for the Particles container.                                                                                           |
 | className    | string   | -----                | Determines a custom className to apply to Particles container.                                                                               |
+| withDefaults | boolean  | true                 | Determines if should merge values from params with lib defaults.                                                                             |
 
 ## Issues
 
