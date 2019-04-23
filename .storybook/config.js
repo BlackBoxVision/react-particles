@@ -6,7 +6,7 @@ addParameters({
   options: {
     name: 'React ParticlesJS',
     theme: themes.light,
-    showAddonPannel: false,
+    showAddonPanel: false,
     addonPanelInRight: true,
   },
 });
