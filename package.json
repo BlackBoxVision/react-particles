@@ -145,6 +145,6 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "lodash.merge": "^4.6.1",
-    "particles.js": "^2.0.0"
+    "tsparticles": "^1.12.10"
   }
 }
