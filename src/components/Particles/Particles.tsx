@@ -1,6 +1,7 @@
 import merge from 'lodash.merge';
-import React, { PureComponent } from 'react';
-import { getParams } from '../../utils';
+import React, {PureComponent} from 'react';
+import {getParams} from '../../utils';
+import {tsParticles} from 'tsparticles';
 
 interface ParticlesProps {
   /**
@@ -43,11 +44,6 @@ interface ParticlesProps {
   withDefaults?: boolean;
 }
 
-interface CustomWindow extends Window {
-  particlesJS?: any;
-  pJSDom?: Array<any>;
-}
-
 export class Particles extends PureComponent<ParticlesProps> {
   static displayName = 'Particles';
 
@@ -60,38 +56,19 @@ export class Particles extends PureComponent<ParticlesProps> {
   };
 
   componentDidMount() {
-    require('particles.js');
-
-    var w: CustomWindow = window;
-
-    if ('particlesJS' in w) {
-      w.particlesJS(this.props.id, this.getParticles());
-    }
+    tsParticles.load(this.props.id ?? "tsparticles", this.getParticles());
   }
 
   componentDidUpdate(prevProps: ParticlesProps) {
-    var w: CustomWindow = window;
-
-    if (
-      'particlesJS' in w &&
-      prevProps.id !== this.props.id &&
-      prevProps.params !== this.props.params
-    ) {
-      w.particlesJS(this.props.id, this.getParticles());
-    }
+    tsParticles.load(this.props.id ?? "tsparticles", this.getParticles());
   }
 
   componentWillUnmount() {
-    var w: CustomWindow = window;
-
-    if ('pJSDom' in w && w.pJSDom instanceof Array && w.pJSDom.length > 0) {
-      w.pJSDom.forEach(({ pJS }) => pJS && pJS.fn.vendors.destroypJS());
-      w.pJSDom = [];
-    }
+    tsParticles.dom().forEach((container) => container.destroy());
   }
 
   render() {
-    const { className, style, width, height, id } = this.props;
+    const {className, style, width, height, id} = this.props;
 
     return (
       <div

@@ -1,6 +1,17 @@
 import merge from 'lodash.merge';
+import {RecursivePartial} from "tsparticles/dist/Types/RecursivePartial";
+import {IOptions} from "tsparticles/dist/Interfaces/Options/IOptions";
+import {ShapeType} from "tsparticles/dist/Enums/ShapeType";
+import {MoveDirection} from "tsparticles/dist/Enums/MoveDirection";
+import {OutMode} from "tsparticles/dist/Enums/OutMode";
+import {InteractivityDetect} from "tsparticles/dist/Enums/InteractivityDetect";
+import {HoverMode} from "tsparticles/dist/Enums/Modes/HoverMode";
+import {ClickMode} from "tsparticles/dist/Enums/Modes/ClickMode";
+import {PolygonMaskType} from "tsparticles/dist/Enums/PolygonMaskType";
+import {PolygonMaskInlineArrangement} from "tsparticles/dist/Enums/PolygonMaskInlineArrangement";
+import {PolygonMaskMoveType} from "tsparticles/dist/Enums/PolygonMaskMoveType";
 
-export const getParams = () =>
+export const getParams = (): RecursivePartial<IOptions> =>
   merge(
     {},
     {
@@ -17,7 +28,7 @@ export const getParams = () =>
           value: '#FFF',
         },
         shape: {
-          type: 'circle',
+          type: ShapeType.circle,
           stroke: {
             width: 0,
             color: '#000000',
@@ -67,10 +78,10 @@ export const getParams = () =>
         move: {
           enable: true,
           speed: 3,
-          direction: 'none',
+          direction: MoveDirection.none,
           random: false,
           straight: false,
-          out_mode: 'bounce',
+          out_mode: OutMode.bounce,
           bounce: true,
           attract: {
             enable: false,
@@ -81,15 +92,15 @@ export const getParams = () =>
         array: [],
       },
       interactivity: {
-        detect_on: 'canvas',
+        detect_on: InteractivityDetect.canvas,
         events: {
           onhover: {
             enable: false,
-            mode: 'grab',
+            mode: HoverMode.grab,
           },
           onclick: {
             enable: false,
-            mode: 'repulse',
+            mode: ClickMode.repulse,
           },
           resize: true,
         },
@@ -122,9 +133,9 @@ export const getParams = () =>
       polygon: {
         enable: false,
         scale: 1,
-        type: 'inline',
+        type: PolygonMaskType.inline,
         inline: {
-          arrangement: 'one-per-point',
+          arrangement: PolygonMaskInlineArrangement.onePerPoint,
         },
         draw: {
           enable: false,
@@ -135,7 +146,7 @@ export const getParams = () =>
         },
         move: {
           radius: 10,
-          type: 'path',
+          type: PolygonMaskMoveType.path,
         },
         url: '',
       },
