@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/react-particles",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "🎉Blazing fast ParticlesJS wrapper for ReactJS",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -145,6 +145,6 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "lodash.merge": "^4.6.1",
-    "tsparticles": "^1.12.11"
+    "tsparticles": "^1.13.6"
   }
 }
